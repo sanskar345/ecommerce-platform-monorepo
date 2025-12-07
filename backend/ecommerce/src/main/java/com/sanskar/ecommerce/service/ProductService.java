@@ -3,7 +3,7 @@ package com.sanskar.ecommerce.service;
 import com.sanskar.ecommerce.dto.product.ProductResponse;
 import com.sanskar.ecommerce.entity.product.Product;
 import com.sanskar.ecommerce.entity.product.ProductPrice;
-import com.sanskar.ecommerce.repo.ProductRepository;
+import com.sanskar.ecommerce.repo.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
