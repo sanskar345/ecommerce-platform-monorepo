@@ -3,6 +3,7 @@ package com.sanskar.ecommerce.product.entity;
 import com.sanskar.ecommerce.inventory.entity.InventoryItem;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +27,10 @@ public class Product {
     private LocalDate introductionDate;
     private LocalDate salesDiscontinuationDate;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductCategoryMember> productCategoryMemberships;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductPrice> prices;
 
     @OneToOne(mappedBy = "product")

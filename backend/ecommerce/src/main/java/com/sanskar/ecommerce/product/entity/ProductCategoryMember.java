@@ -12,15 +12,16 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductCategoryMember {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private ProductCategoryMemberId id;
 
     @ManyToOne
+    @MapsId("productId")
     @JoinColumn(name = "product_id")              // FK column in this table
     private Product product;
 
     @ManyToOne
+    @MapsId("productCategoryId")
     @JoinColumn(name = "product_category_id")     // FK column in this table
     private ProductCategory category;
 
